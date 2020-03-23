@@ -1,0 +1,6 @@
+D:\tsp.net\lab1\nrPrim\nrPrim\bin\Debug\nrPrim.exe.config
+D:\tsp.net\lab1\nrPrim\nrPrim\bin\Debug\nrPrim.exe
+D:\tsp.net\lab1\nrPrim\nrPrim\bin\Debug\nrPrim.pdb
+D:\tsp.net\lab1\nrPrim\nrPrim\obj\Debug\nrPrim.csprojAssemblyReference.cache
+D:\tsp.net\lab1\nrPrim\nrPrim\obj\Debug\nrPrim.exe
+D:\tsp.net\lab1\nrPrim\nrPrim\obj\Debug\nrPrim.pdb
