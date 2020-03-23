@@ -1,0 +1,10 @@
+D:\tsp.net\lab3\ModelCodeFirst_L1\ModelCodeFirst_L1\bin\Debug\netcoreapp3.1\ModelCodeFirst_L1.deps.json
+D:\tsp.net\lab3\ModelCodeFirst_L1\ModelCodeFirst_L1\bin\Debug\netcoreapp3.1\ModelCodeFirst_L1.dll
+D:\tsp.net\lab3\ModelCodeFirst_L1\ModelCodeFirst_L1\obj\Debug\netcoreapp3.1\ModelCodeFirst_L1.csprojAssemblyReference.cache
+D:\tsp.net\lab3\ModelCodeFirst_L1\ModelCodeFirst_L1\obj\Debug\netcoreapp3.1\ModelCodeFirst_L1.AssemblyInfoInputs.cache
+D:\tsp.net\lab3\ModelCodeFirst_L1\ModelCodeFirst_L1\obj\Debug\netcoreapp3.1\ModelCodeFirst_L1.AssemblyInfo.cs
+D:\tsp.net\lab3\ModelCodeFirst_L1\ModelCodeFirst_L1\bin\Debug\netcoreapp3.1\ModelCodeFirst_L1.runtimeconfig.json
+D:\tsp.net\lab3\ModelCodeFirst_L1\ModelCodeFirst_L1\bin\Debug\netcoreapp3.1\ModelCodeFirst_L1.runtimeconfig.dev.json
+D:\tsp.net\lab3\ModelCodeFirst_L1\ModelCodeFirst_L1\bin\Debug\netcoreapp3.1\ModelCodeFirst_L1.pdb
+D:\tsp.net\lab3\ModelCodeFirst_L1\ModelCodeFirst_L1\obj\Debug\netcoreapp3.1\ModelCodeFirst_L1.dll
+D:\tsp.net\lab3\ModelCodeFirst_L1\ModelCodeFirst_L1\obj\Debug\netcoreapp3.1\ModelCodeFirst_L1.pdb
