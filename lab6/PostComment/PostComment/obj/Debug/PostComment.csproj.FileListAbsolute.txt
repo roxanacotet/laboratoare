@@ -1,0 +1,2 @@
+D:\facultate\.net\lab6\PostComment\PostComment\obj\Debug\PostComment.csprojAssemblyReference.cache
+D:\facultate\.net\lab6\PostComment\PostComment\obj\Debug\PostComment.csproj.CoreCompileInputs.cache

@@ -1,0 +1,2 @@
+D:\facultate\.net\lab6\PostComment\ObjectWCF\obj\Debug\ObjectWCF.csprojAssemblyReference.cache
+D:\facultate\.net\lab6\PostComment\ObjectWCF\obj\Debug\ObjectWCF.csproj.CoreCompileInputs.cache
