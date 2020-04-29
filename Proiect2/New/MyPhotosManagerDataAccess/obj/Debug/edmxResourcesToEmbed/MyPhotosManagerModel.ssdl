@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyPhotosManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Details">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPhoto" Type="int" Nullable="false" />
+    <Property Name="DetailKey" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DetailValue" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPhoto" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Peoples">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPhoto" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Photos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Path" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreationDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Location" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="IsVideo" Type="bit" Nullable="false" />
+    <Property Name="Event_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="PhotosDetails">
+    <Key>
+      <PropertyRef Name="Photos_Id" />
+      <PropertyRef Name="Details_Id" />
+    </Key>
+    <Property Name="Photos_Id" Type="int" Nullable="false" />
+    <Property Name="Details_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PhotosPeoples">
+    <Key>
+      <PropertyRef Name="Photos_Id" />
+      <PropertyRef Name="Peoples_Id" />
+    </Key>
+    <Property Name="Photos_Id" Type="int" Nullable="false" />
+    <Property Name="Peoples_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_PhotosDetails_Details">
+    <End Role="Details" Type="Self.Details" Multiplicity="1" />
+    <End Role="PhotosDetails" Type="Self.PhotosDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Details">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PhotosDetails">
+        <PropertyRef Name="Details_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhotosDetails_Photos">
+    <End Role="Photos" Type="Self.Photos" Multiplicity="1" />
+    <End Role="PhotosDetails" Type="Self.PhotosDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PhotosDetails">
+        <PropertyRef Name="Photos_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhotosEvents">
+    <End Role="Events" Type="Self.Events" Multiplicity="0..1" />
+    <End Role="Photos" Type="Self.Photos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Events">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Photos">
+        <PropertyRef Name="Event_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhotosPeoples_Peoples">
+    <End Role="Peoples" Type="Self.Peoples" Multiplicity="1" />
+    <End Role="PhotosPeoples" Type="Self.PhotosPeoples" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Peoples">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PhotosPeoples">
+        <PropertyRef Name="Peoples_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhotosPeoples_Photos">
+    <End Role="Photos" Type="Self.Photos" Multiplicity="1" />
+    <End Role="PhotosPeoples" Type="Self.PhotosPeoples" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PhotosPeoples">
+        <PropertyRef Name="Photos_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MyPhotosManagerModelStoreContainer">
+    <EntitySet Name="Details" EntityType="Self.Details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Peoples" EntityType="Self.Peoples" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhotosDetails" EntityType="Self.PhotosDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhotosPeoples" EntityType="Self.PhotosPeoples" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_PhotosDetails_Details" Association="Self.FK_PhotosDetails_Details">
+      <End Role="Details" EntitySet="Details" />
+      <End Role="PhotosDetails" EntitySet="PhotosDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhotosDetails_Photos" Association="Self.FK_PhotosDetails_Photos">
+      <End Role="Photos" EntitySet="Photos" />
+      <End Role="PhotosDetails" EntitySet="PhotosDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhotosEvents" Association="Self.FK_PhotosEvents">
+      <End Role="Events" EntitySet="Events" />
+      <End Role="Photos" EntitySet="Photos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhotosPeoples_Peoples" Association="Self.FK_PhotosPeoples_Peoples">
+      <End Role="Peoples" EntitySet="Peoples" />
+      <End Role="PhotosPeoples" EntitySet="PhotosPeoples" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhotosPeoples_Photos" Association="Self.FK_PhotosPeoples_Photos">
+      <End Role="Photos" EntitySet="Photos" />
+      <End Role="PhotosPeoples" EntitySet="PhotosPeoples" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

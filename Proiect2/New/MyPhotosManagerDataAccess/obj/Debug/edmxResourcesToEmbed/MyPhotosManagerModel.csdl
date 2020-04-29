@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MyPhotosManagerModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="MyPhotosManagerModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Photos" EntityType="MyPhotosManagerModel.Photos" />
+    <EntitySet Name="Events" EntityType="MyPhotosManagerModel.Events" />
+    <EntitySet Name="Peoples" EntityType="MyPhotosManagerModel.Peoples" />
+    <AssociationSet Name="PhotosEvents" Association="MyPhotosManagerModel.PhotosEvents">
+      <End EntitySet="Photos" Role="Photos" />
+      <End EntitySet="Events" Role="Events" />
+    </AssociationSet>
+    <EntitySet Name="Details" EntityType="MyPhotosManagerModel.Details" />
+    <AssociationSet Name="PhotosPeoples" Association="MyPhotosManagerModel.PhotosPeoples">
+      <End Role="Photos" EntitySet="Photos" />
+      <End Role="Peoples" EntitySet="Peoples" />
+    </AssociationSet>
+    <AssociationSet Name="PhotosDetails" Association="MyPhotosManagerModel.PhotosDetails">
+      <End Role="Photos" EntitySet="Photos" />
+      <End Role="Details" EntitySet="Details" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Photos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Path" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="CreationDate" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Location" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="IsVideo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Event" Relationship="MyPhotosManagerModel.PhotosEvents" FromRole="Photos" ToRole="Events" />
+    <NavigationProperty Name="Peoples" Relationship="MyPhotosManagerModel.PhotosPeoples" FromRole="Photos" ToRole="Peoples" />
+    <NavigationProperty Name="Details" Relationship="MyPhotosManagerModel.PhotosDetails" FromRole="Photos" ToRole="Details" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdPhoto" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Photos" Relationship="MyPhotosManagerModel.PhotosEvents" FromRole="Events" ToRole="Photos" />
+  </EntityType>
+  <EntityType Name="Peoples">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdPhoto" Nullable="false" Type="Int32" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Photos" Relationship="MyPhotosManagerModel.PhotosPeoples" FromRole="Peoples" ToRole="Photos" />
+  </EntityType>
+  <Association Name="PhotosEvents">
+    <End Type="MyPhotosManagerModel.Photos" Multiplicity="*" Role="Photos" />
+    <End Type="MyPhotosManagerModel.Events" Multiplicity="0..1" Role="Events" />
+  </Association>
+  <EntityType Name="Details">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdPhoto" Type="Int32" Nullable="false" />
+    <Property Name="DetailKey" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="DetailValue" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Photos" Relationship="MyPhotosManagerModel.PhotosDetails" FromRole="Details" ToRole="Photos" />
+  </EntityType>
+  <Association Name="PhotosPeoples">
+    <End Type="MyPhotosManagerModel.Photos" Role="Photos" Multiplicity="*" />
+    <End Type="MyPhotosManagerModel.Peoples" Role="Peoples" Multiplicity="*" />
+  </Association>
+  <Association Name="PhotosDetails">
+    <End Type="MyPhotosManagerModel.Photos" Role="Photos" Multiplicity="*" />
+    <End Type="MyPhotosManagerModel.Details" Role="Details" Multiplicity="*" />
+  </Association>
+</Schema>
