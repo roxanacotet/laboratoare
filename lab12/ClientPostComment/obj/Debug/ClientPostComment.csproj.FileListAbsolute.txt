@@ -1,0 +1,9 @@
+D:\facultate\.net\lab12\PostComment\ClientPostComment\bin\Debug\ClientPostComment.exe.config
+D:\facultate\.net\lab12\PostComment\ClientPostComment\bin\Debug\ClientPostComment.exe
+D:\facultate\.net\lab12\PostComment\ClientPostComment\bin\Debug\ClientPostComment.pdb
+D:\facultate\.net\lab12\PostComment\ClientPostComment\obj\Debug\ClientPostComment.csprojAssemblyReference.cache
+D:\facultate\.net\lab12\PostComment\ClientPostComment\obj\Debug\ClientPostComment.Properties.Resources.resources
+D:\facultate\.net\lab12\PostComment\ClientPostComment\obj\Debug\ClientPostComment.csproj.GenerateResource.cache
+D:\facultate\.net\lab12\PostComment\ClientPostComment\obj\Debug\ClientPostComment.csproj.CoreCompileInputs.cache
+D:\facultate\.net\lab12\PostComment\ClientPostComment\obj\Debug\ClientPostComment.exe
+D:\facultate\.net\lab12\PostComment\ClientPostComment\obj\Debug\ClientPostComment.pdb
