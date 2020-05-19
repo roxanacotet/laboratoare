@@ -1,0 +1,70 @@
+﻿@page
+@model MyPhotosManagerWeb.Pages.Photo.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>DetailDTO</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PhotoDTO.Id" />
+            <div class="form-group">
+                <label asp-for="PhotoDTO.Id" class="control-label"></label>
+                <input asp-for="PhotoDTO.Id" class="form-control" />
+                <span asp-validation-for="PhotoDTO.Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhotoDTO.Name" class="control-label"></label>
+                <input asp-for="PhotoDTO.Name" class="form-control" />
+                <span asp-validation-for="PhotoDTO.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhotoDTO.Path" class="control-label"></label>
+                <input asp-for="PhotoDTO.Path" class="form-control" />
+                <span asp-validation-for="PhotoDTO.Path" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhotoDTO.CreationDate" class="control-label"></label>
+                <input asp-for="PhotoDTO.CreationDate" class="form-control" />
+                <span asp-validation-for="PhotoDTO.CreationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhotoDTO.Location" class="control-label"></label>
+                <input asp-for="PhotoDTO.Location" class="form-control" />
+                <span asp-validation-for="PhotoDTO.Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhotoDTO.IsDeleted" class="control-label"></label>
+                <input asp-for="PhotoDTO.IsDeleted" class="form-control" />
+                <span asp-validation-for="PhotoDTO.IsDeleted" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhotoDTO.IsVideo" class="control-label"></label>
+                <input asp-for="PhotoDTO.IsVideo" class="form-control" />
+                <span asp-validation-for="PhotoDTO.IsVideo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhotoDTO.Event" class="control-label"></label>
+                <input asp-for="PhotoDTO.Event" class="form-control" />
+                <span asp-validation-for="PhotoDTO.Event" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
