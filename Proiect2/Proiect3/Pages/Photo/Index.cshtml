@@ -1,0 +1,76 @@
+﻿@page 
+@model MyPhotosManagerWeb.Pages.Photo.IndexModel
+
+@{
+    ViewData["Title"] = "Photos";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<form>
+    <p>
+        <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Search" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PhotoDTO[0].Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhotoDTO[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhotoDTO[0].Path)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhotoDTO[0].CreationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhotoDTO[0].Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhotoDTO[0].IsVideo)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.PhotoDTO) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <img src=@item.Path alt= "@item.Name"/>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsVideo)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}  
+            <p>@Model.PhotoDTO.Count results found!</p>
+
+    </tbody>
+</table>
